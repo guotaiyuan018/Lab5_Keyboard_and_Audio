@@ -9,7 +9,7 @@ module PlayerCtrl (
 	input dir,
 	output reg [7:0] ibeat
 );
-parameter BEATLEAGTH = 28; // C4~C8
+parameter BEATLEAGTH = 29; // C4~C8(0~28)
 
 always @(posedge clk, posedge reset) begin
 	if (reset)	ibeat <= 0;
@@ -19,7 +19,7 @@ always @(posedge clk, posedge reset) begin
         else                    ibeat <= ibeat;
     
     end else begin              //descend
-		if(ibeat > 0)           ibeat <= ibeat - 1;
+		if(ibeat > 1)           ibeat <= ibeat - 1;
         else                    ibeat <= ibeat;
     end
 end
